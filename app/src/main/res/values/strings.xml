@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">SamsungDestek</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Deneme!</string>
     <string name="action_settings">Settings</string>
 
 </resources>
