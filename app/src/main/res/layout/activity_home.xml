@@ -2,15 +2,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".HomeActivity">
+    tools:context=".MyActivity">
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--   Header Start  -->
+    <RelativeLayout
+        android:id="@+id/Header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkblue"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="11dp"
+            android:text="Samsung Soru Cevap"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/darkblue"
+            android:text="Giriş Yap"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <!--   Header Finish  -->
+
+
+    <!--   Menu Start  -->
+    <RelativeLayout
+        android:id="@+id/Menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Header"
+        android:background="@color/blue">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnSoruSor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/blue"
+                android:text="Soru Sor"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_size" />
+
+            <Button
+                android:id="@+id/btnFavorilerim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/blue"
+                android:text="Favorilerim"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_size" />
+
+            <Button
+                android:id="@+id/btnSorularim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/blue"
+                android:text="Sorularım"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_size" />
+
+            <Button
+                android:id="@+id/btnFilitreleme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/blue"
+                android:text="Filitreleme"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_size" />
+
+            <Button
+                android:id="@+id/btnProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/blue"
+                android:text="Profilim"
+                android:textColor="@color/white"
+                android:textSize="@dimen/menu_text_size" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!--   Menu Finish  -->
+
+
+    <!--   Listview Start  -->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/Menu">
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:footerDividersEnabled="false" />
+    </RelativeLayout>
+    <!--   Listview Finish  -->
 
 </RelativeLayout>
