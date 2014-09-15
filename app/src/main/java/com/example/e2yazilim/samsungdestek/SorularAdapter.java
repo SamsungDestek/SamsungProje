@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by cevo on 15.9.2014.
- */
 public class SorularAdapter extends BaseAdapter {
     ArrayList<Soru> sorular;
     Context context;

@@ -36,8 +36,7 @@ import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 
-    static ArrayList<Soru> sorular = new ArrayList<Soru>();
-
+    ArrayList<Soru> sorular;
     ListView lvSorular;
 
     @Override
@@ -45,18 +44,17 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home);
+        sorular = new ArrayList<Soru>();
         lvSorular = (ListView) findViewById(R.id.listView1);
-        new DownloadJson().execute();
+        new DownloadSoruJson().execute();
     }
 
-
-    private class DownloadJson extends AsyncTask<Void, Void, Void> {
+    private class DownloadSoruJson extends AsyncTask<Void, Void, Void> {
         JSONArray jsonArray = null;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // Toast.makeText(HomeActivity.this, "Selam", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -87,8 +85,7 @@ public class HomeActivity extends Activity {
         @Override
         protected void onPostExecute(Void str) {
             try {
-
-                for (int i = 0; i < jsonArray.length(); i++) {
+                for (int i = 0; i < jsonArray.length(); ++i) {
                     Soru soru = new Soru();
                     soru.setId(Integer.parseInt(jsonArray.getJSONObject(i).getString("Id").toString()));
                     soru.setBaslik(jsonArray.getJSONObject(i).getString("Baslik").toString());
@@ -100,16 +97,13 @@ public class HomeActivity extends Activity {
                     soru.setCevapSayi(Integer.parseInt(jsonArray.getJSONObject(i).getString("CevapSayi").toString()));
                     sorular.add(soru);
                 }
-
                 SorularAdapter adapter = new SorularAdapter(HomeActivity.this, sorular);
                 lvSorular.setAdapter(adapter);
-
 
             } catch (JSONException e) {
                 Log.e("Hata", e.getMessage());
             }
         }
-
     }
 
     private static String convertStreamToString(InputStream is) {
@@ -133,11 +127,6 @@ public class HomeActivity extends Activity {
         }
         return sb.toString();
     }
-
-    private void Mesaj(String s) {
-        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
