@@ -1,8 +1,9 @@
 package com.example.e2yazilim.samsungdestek;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Soru {
+public class Soru implements Serializable {
 
     private int id;
     private String baslik;

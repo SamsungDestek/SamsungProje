@@ -1,12 +1,15 @@
 package com.example.e2yazilim.samsungdestek;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -16,41 +19,31 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import android.app.Activity;
-import android.app.LauncherActivity;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import java.io.IOException;
+import java.io.InputStream;
 
-public class HomeActivity extends Activity {
 
-    ArrayList<Soru> sorular;
-    ListView lvSorular;
+public class QuestionActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_home);
-        sorular = new ArrayList<Soru>();
-        lvSorular = (ListView) findViewById(R.id.listView1);
-        new DownloadSoruJson().execute();
+        setContentView(R.layout.activity_question);
+        Bundle extra = getIntent().getBundleExtra("bundle");
+        Soru soru=(Soru)extra.getSerializable("soru");
+
+        TextView tvBaslik=(TextView)findViewById(R.id.txtSoruBaslik);
+        TextView tvIcerik=(TextView)findViewById(R.id.txtIcerik);
+        TextView tvPuan=(TextView)findViewById(R.id.txtPuan);
+
+        tvBaslik.setText(soru.getBaslik());
+        tvIcerik.setText(soru.getIcerik());
+        tvPuan.setText(Integer.toString(soru.getPuan()));
 
     }
+
 
     private class DownloadSoruJson extends AsyncTask<Void, Void, Void> {
         JSONArray jsonArray = null;
@@ -62,7 +55,7 @@ public class HomeActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            String url = "http://android.e2yazilim.com/api/soru";
+            String url = "http://android.e2yazilim.com/api/soru/";
             HttpClient httpclient = new DefaultHttpClient();
             HttpGet httpget = new HttpGet(url);
             HttpResponse response;
@@ -88,7 +81,7 @@ public class HomeActivity extends Activity {
 
         @Override
         protected void onPostExecute(Void str) {
-            try {
+           /* try {
                 for (int i = 0; i < jsonArray.length(); ++i) {
                     Soru soru = new Soru();
                     soru.setId(Integer.parseInt(jsonArray.getJSONObject(i).getString("Id").toString()));
@@ -105,14 +98,15 @@ public class HomeActivity extends Activity {
                 lvSorular.setAdapter(adapter);
             } catch (JSONException e) {
                 Log.e("Hata", e.getMessage());
-            }
+            }*/
         }
 
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.question, menu);
         return true;
     }
 

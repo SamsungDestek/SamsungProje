@@ -11,5 +11,7 @@
             ante lacus pellentesque mi, at imperdiet metus dui vel est. Vivamus sed augue sagittis tellus
             porta bibendum. </string>
     <string name="LoremIpsumSoru">Lorem ipsum dolor sit amet, consectetur ? </string>
+    <string name="title_activity_question">QuestionActivity</string>
+    <string name="title_activity_deneme">denemeActivity</string>
 
 </resources>
