@@ -63,12 +63,13 @@ public class HomeActivity extends Activity {
             HttpClient httpclient = new DefaultHttpClient();
             HttpGet httpget = new HttpGet(url);
             HttpResponse response;
+
             try {
                 response = httpclient.execute(httpget);
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
                     InputStream instream = entity.getContent();
-                    String result = convertStreamToString(instream);
+                    String result =ConvertStreamToString.convertStreamToString(instream);
                     jsonArray = new JSONArray(result);
                     instream.close();
                 }
@@ -104,28 +105,7 @@ public class HomeActivity extends Activity {
                 Log.e("Hata", e.getMessage());
             }
         }
-    }
 
-    private static String convertStreamToString(InputStream is) {
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-                sb.substring(sb.length() - 2, sb.length());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return sb.toString();
     }
 
     @Override
