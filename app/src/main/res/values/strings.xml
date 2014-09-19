@@ -4,5 +4,12 @@
     <string name="app_name">SamsungDestek</string>
     <string name="hello_world">Deneme3!</string>
     <string name="action_settings">Settings</string>
+    <string name="LoremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vivamus mollis rhoncus urna ut pulvinar. Phasellus euismod libero felis, non viverra
+            odio feugiat eget. Morbi maximus eros mattis arcu mattis, eget pulvinar metus mattis.
+            Pellentesque posuere libero et mi viverra hendrerit. Nunc tristique, nisi ac rutrum tristique,
+            ante lacus pellentesque mi, at imperdiet metus dui vel est. Vivamus sed augue sagittis tellus
+            porta bibendum. </string>
+    <string name="LoremIpsumSoru">Lorem ipsum dolor sit amet, consectetur ? </string>
 
 </resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/SolKutu"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:background="@color/gri"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/YukariOk"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/yukari_ucgen_mavi" />
+
+            <TextView
+                android:id="@+id/txtPuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="32dp"
+                android:text="7"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/sayirenk"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:id="@+id/Asagi_ok"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/asagi_ucgen_mavi" />
+
+            <ImageView
+                android:id="@+id/dogru"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/Asagi_ok"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/thick" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/SolKutu"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/soru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/txtSoru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/LoremIpsum"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blue"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/soru"
+            android:paddingLeft="10dp">
+
+            <ImageView
+                android:id="@+id/Saat"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/saat_mavi" />
+
+            <TextView
+                android:id="@+id/txtKisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@id/Saat"
+                android:textColor="@color/blue"
+                android:text="17.11.2014  (Sefa Akmemiş)"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
